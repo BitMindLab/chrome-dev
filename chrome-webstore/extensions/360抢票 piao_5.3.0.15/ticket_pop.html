@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <title>360抢票王</title>
+    <meta name="description" content="360抢票王">
+    <meta name="keywords" content="360抢票王 ，刷票机，抢票助手">
+    <link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.min.css" />
+    <link rel="stylesheet" href="css/ticket_pop.css">
+</head>
+
+<body>
+    <div class="header">
+        <span class="title active">360抢票王</span>
+        <span class="split">|</span>
+        <span class="title">抢票提醒</span>
+        <input class="btn-close" type="button" />
+    </div>
+    <div class="install-cert">
+        <div class="smile-tips">
+            <span>温馨提示：
+                  <br>您需要安装铁道部官方证书才能继续使用
+                  </span>
+        </div>
+        <div class="cert">
+            <p>
+                <input type="button" class="btn-install" id="btn_install" value="安装铁道部证书">
+            </p>
+            <p>
+                <input type="button" class="btn-install" id="btn_install_error" value="证书安装失败，查看帮助">
+            </p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="tips">
+            <span class="tips-time">今日起售
+                        <span class="tips-emphasize">2014-1-16</span>火车票
+            <br/>
+            <span style="display: none">
+                          <span id="temp-train-tip">2014年1月16日-2月24日春运期间加开临客</span>
+            <span id="temp-train" style="display: none">今日起售
+                            <span class="tips-emphasize1">2014-1-26</span>临客
+            </span>
+            </span>
+            </span>
+        </div>
+        <div class="cons">
+            <div class="access"></div>
+            <div class="notify">
+                <input type="button" value="" id="btn_add_notify">
+                <div class="notify-editor"></div>
+                <div class="notify-recorder"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/template" id="access_template">
+        {{@access}}
+
+        <div class="cons-item split-line" href="{{%_val.href}}" dotUrl="{{%_val.dotUrl}}">
+            <div class="item-logo {{%_val.className}}" {{%_val.backgroundStyle}}></div>
+            <div class="item-content">
+                <span class="item-title">{{%_val.title}}</span>
+                <span class="item-desc">{{%_val.desc}}</span>
+            </div>
+            <div class="item-access"></div>
+        </div>
+        {{/@access}}
+
+    </script>
+    <script type="text/template" id="notify_recorder_template">
+        {{@recorder}}
+
+        <div class="recorder" stamp="{{%_val.stamp}}">
+            <div class="recorder-content">
+                <span>乘车日期：
+                            <span>{{%_val.ticketDate}}</span>
+                </span>
+                <span>将在 
+                            <span>{{%_val.notifyDate}}</span> 提醒
+                </span>
+                <span>提醒时间：
+                            <span>{{%_val.notifyTime}}</span>
+                </span>
+            </div>
+            <div class="recorder-operate">
+                <input type="button" class="btn-recorder-edit" stamp="{{%_val.stamp}}">
+                <input type="button" class="btn-recorder-delete" stamp="{{%_val.stamp}}">
+            </div>
+        </div>
+        {{/@recorder}}
+
+    </script>
+    <script type="text/template" id="notify_editor_template">
+        {{editor}}
+
+        <div class="editor-inputs">
+            <span style="display: block">乘车日期 
+                              <input type="text" id="date_picker" class="has-date-picker">
+                              </span>
+            <div class="editor-tips" style="display: none">
+                <span class="editor-tips-item" id="editor_tips_expire">您的乘车日期已过期，请重新选择。</span>
+                <span class="editor-tips-item" id="editor_tips_available">该日期已可预订，直接刷票吧。</span>
+            </div>
+            <div class="editor-content">
+                <span style="display:block">将在 
+                                  <span id="date_notify">{{%editor.notifyDate}}</span> 提醒您购票
+                </span>
+                <span id="editor_notify_temp" style="display:none">将在
+                                  <span id="date_notify_temp">{{%editor.notifyDateTemp}}</span>提醒您购临客票
+                </span>
+                <span style="display: block">
+          提醒时间 
+
+                                  <input class="book-time" id="book_time_hour" type="text" value="{{%editor.hour}}">&nbsp;&nbsp;时&nbsp;
+
+                                    <input class="book-time" id="book_time_minute" type="text" value="{{%editor.minute}}">&nbsp;&nbsp;分
+
+                                    </span>
+                <span style="display: block">
+                                      <label for="book_notify_audio">
+                                        <input type="checkbox" id="book_notify_audio" checked="{{%editor.checked}}">
+            开启声音提醒
+
+                                        </label>
+                                      </span>
+            </div>
+        </div>
+        {{editor.cancelable}}
+
+        <input type="button" class="btn-editor" id="btn_editor_cancel" value="取 消">
+        <input type="button" class="btn-editor" id="btn_editor_confirm" value="确 定"> {{:editor.cancelable}}
+
+        <input type="button" class="btn-editor" id="btn_editor_confirm_only" value="确 定" style="display: inline-block;"> {{/editor.cancelable}} {{/editor}}
+
+    </script>
+    <script src="lib/jquery.js"></script>
+    <script src="lib/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="lib/t.min.js"></script>
+    <script src="js/ticket_pop.min.js"></script>
+</body>
+
+</html>

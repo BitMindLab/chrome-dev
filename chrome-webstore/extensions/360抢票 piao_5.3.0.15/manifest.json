@@ -1,0 +1,78 @@
+{
+  "version": "5.3.0.15",
+  "minimum_chrome_version": "18.0.0.0",
+  "manifest_version": 2,
+  "default_locale": "zh_CN",
+  "name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "update_url": "http://upext.chrome.360.cn/intf.php?method=ExtUpdate.query",
+
+  "icons": {
+    "16": "images/19.png",
+    "48": "images/48.png",
+    "128": "images/128.png"
+  },
+
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "css": ["css/ticket_otn_content.css"],
+      "js": [
+        "lib/jquery.js",
+        "lib/jquery_pack.js",
+        "lib/md5.js",
+        "js/ticket_content_otn.min.js"
+      ],
+      "matches": [ "*://*.12306.cn/otn/*"],
+      "run_at": "document_end"
+    },
+    {
+      "all_frames": false,
+      "js": [
+        "js/ticket_content_helper.js"
+      ],
+      "matches": ["http://12306.360.cn/*"],
+      "run_at": "document_start"
+    },
+    {
+      "all_frames": false,
+      "js": [
+        "lib/jquery.js",
+        "js/ticket_content_cross.min.js"
+      ],
+      "matches": ["http://*.huochepiao.360.cn/*","http://p.360.cn/*","https://lxqp.360.cn/*","http://huijia.corp.qihoo.net/*","http://*.12306.360.cn/*","http://se.360.cn/*"],
+      "run_at": "document_start"
+    }
+  ],
+
+  "background": {
+    "page": "ticket_bg.html"
+  },
+
+  "web_accessible_resources": [
+    "images/12306.png"
+  ],
+
+  "browser_action": {
+    "default_icon": "images/19.png",
+    "default_popup": "ticket_pop.html"
+  },
+
+  "permissions": [
+    "notifications",
+    "tabs",
+    "management",
+    "*://*.12306.cn/*",
+    "*://*/otn/*",
+    "*://*.360.cn/*",
+    "cookies",
+    "storage",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "plugins": [
+    {
+      "path": "plugin/helper.dll"
+    }
+  ]
+}
