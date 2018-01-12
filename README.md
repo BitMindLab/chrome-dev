@@ -19,6 +19,8 @@
 - password hash 可以在浏览器插件中，也可以网站提供的service比如谷歌app。不需要，直接找个hashonline网站就行
 - Infinity: add news, 订阅，AI相关，微信公众号订阅，
 - qq wechat bot
+- 360抢票
+- chrono download manager
 
 - 给百度地图添加工具，地图二次开发。基于页面、基于百度api。比如链家 我爱我家的地图搜房。
 
