@@ -9,9 +9,9 @@
 
 
 
-## TODO 
+## TODO
 
-* proxy switch. 
+* proxy switch.
 * 惠惠购物助手
 * lastpass
 * zotero ext. It may call a zotero api
@@ -19,7 +19,7 @@
 - password hash 可以在浏览器插件中，也可以网站提供的service比如谷歌app。不需要，直接找个hashonline网站就行
 - Infinity: add news, 订阅，AI相关，微信公众号订阅，
 - qq wechat bot
-- 360抢票
+- [360抢票](chrome-webstore/extensions/360抢票%20piao_5.3.0.15)
 - chrono download manager
 
 - 给百度地图添加工具，地图二次开发。基于页面、基于百度api。比如链家 我爱我家的地图搜房。
@@ -31,7 +31,7 @@
 0. html页面(主要指js，不指后台)、页面的DOM、chrome.tab、chrome.windows、
 1. chrome app 应用
 2. extension 扩展
-	2.1 extension 
+	2.1 extension
 	2.3 Content script是在一个特殊环境中运行的，这个环境成为isolated world（隔离环境）
 3. plugin 插件
 4. 内核
@@ -92,8 +92,8 @@ Windows是鼓励“多线程，少进程”，为什么主流浏览器只有chro
 
 简单的说，chrome是一个用内存换速度的浏览器。
 
-* a main process, 
-* a GPU renderer process 
+* a main process,
+* a GPU renderer process
 * a single process for every tab, extension and plugin
 
 **优势**：
@@ -105,5 +105,3 @@ Windows是鼓励“多线程，少进程”，为什么主流浏览器只有chro
 
 **其他**
 因为进程间的通信比线程更加复杂，chrome会有一个主进程去控制协调各个tab和各个插件间的进程。
-
-
