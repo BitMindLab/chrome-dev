@@ -16,7 +16,7 @@
 
 
 
-### 方式二：本地下载
+### 方式二：本地拷贝
 1. 下载360抢票浏览器
 1. 地址栏输入：se://settings/advance
 1. 查看缓存目录，默认是 C:\Users\Administrator\AppData\Roaming\360se6\User Data\Default\
