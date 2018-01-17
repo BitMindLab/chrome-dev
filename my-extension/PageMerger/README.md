@@ -6,3 +6,13 @@
 4. print
 
 
+
+
+
+## 示例
+
+
+一键存储tensorflow文档
+一键存储keras文档
+一键存储github文档
+一键存储tomcat文档
