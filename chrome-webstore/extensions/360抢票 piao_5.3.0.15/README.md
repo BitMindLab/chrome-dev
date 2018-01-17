@@ -1,5 +1,8 @@
 
 
+## 综述
+
+目前12306已经提供**自动查询**、**提醒**、**自动提交**功能，360插件貌似已经没有任何优势了
 
 
 
@@ -57,7 +60,99 @@ TODO
 
 ## 源码分析
 
-TODO
+目录
+
+```python
+
+	piao ┬───css───...
+	     ├─images──...
+	     ├─js─┬─ticket_bg.min.js     # as bg script
+	     │    ├─ticket_conent_cross.min.js  # as content_scripts
+	     │    ├─ticket_conent_helper.min.js
+	     │    ├─ticket_conent_inject.js
+	     │    ├─ticket_conent_otn.min.js
+	     │    ├─ticket_conent.min.js
+	     │    └─ticket_pop.min.js   # as pop script
+	     ├lib─┬─base64.min.js
+	     │    └─...
+	     ├─plugin───helper.dull
+	     └─manifest.json
+
+```
+
+manifest.json
+```python
+"content_scripts": [
+  {
+    "all_frames": true,
+    "js": [
+      "lib/jquery.js",
+      "lib/jquery_pack.js",
+      "lib/md5.js",
+      "js/ticket_content_otn.min.js"
+    ],
+    "matches": [ "*://*.12306.cn/otn/*"],
+    "run_at": "document_end"
+  },
+  {
+    "all_frames": false,
+    "js": [
+      "js/ticket_content_helper.js"
+    ],
+    "matches": ["http://12306.360.cn/*"], # 这个网页
+    "run_at": "document_start"
+  },
+  {
+    "all_frames": false,
+    "js": [
+      "lib/jquery.js",
+      "js/ticket_content_cross.min.js"
+    ],
+    "matches": ["http://*.huochepiao.360.cn/*","http://p.360.cn/*","https://lxqp.360.cn/*","http://huijia.corp.qihoo.net/*","http://*.12306.360.cn/*","http://se.360.cn/*"],
+    "run_at": "document_start"
+  }
+]
+...
+"plugins": [
+  {
+    "path": "plugin/helper.dll"
+  }
+]
+
+```
+
+
+extension环境：
+- ticket_bg.html
+- ticket_bg.min.js  # 由ticket_bg.html加载
+
+
+content-script环境：
+
+- 对于http://pc.huochepiao.360.cn/
+  - ticket_content_cross.min.js
+  -
+
+- 对于http://12306.360.cn/
+  - ticket_content_helper.js
+  -
+
+- 对于*://*.12306.cn/otn/
+  -
+
+
+## 主要的12306 api
+
+- 登录：
+  - https://kyfw.12306.cn/otn/login/userLogin
+  -
+- 查询余票：
+  - 初始化 https://kyfw.12306.cn/otn/leftTicket/init
+  - 点击查询 https://kyfw.12306.cn/otn/leftTicket/queryZ
+  - https://kyfw.12306.cn/otn/leftTicket/log
+- 购票：
+
+
 
 
 ## 按个人需求定制
