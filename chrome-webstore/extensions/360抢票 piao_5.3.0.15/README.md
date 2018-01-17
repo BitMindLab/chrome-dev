@@ -132,12 +132,11 @@ content-script环境：
 - 对于http://pc.huochepiao.360.cn/
   - ticket_content_cross.min.js
   -
-
 - 对于http://12306.360.cn/
   - ticket_content_helper.js
-  -
+  - ..
 - 对于https://kyfw.12306.cn/otn
-  -
+  -..
 
 
 ## 主要的12306 api
