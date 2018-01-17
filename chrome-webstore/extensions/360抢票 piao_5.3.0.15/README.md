@@ -35,9 +35,9 @@
   - 单击 load unpacked extension，选择插件的目录。
   - 导入结束
 - 开始调试
-  - 进入抢票主页 http://pc.huochepiao.360.cn/
+  - 在chrome中，打开抢票主页 http://pc.huochepiao.360.cn/
   - 正常刷票，购票。可在js中设置断点，调试
-
+  - 关于chrome 插件调试，移步至[360doc](http://open.chrome.360.cn/extension_dev/overview.html) 或官方doc
 
 ## 常见错误
 
