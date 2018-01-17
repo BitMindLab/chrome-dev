@@ -64,19 +64,19 @@ TODO
 
 ```python
 
-	piao ┬───css───...
-	     ├─images──...
-	     ├─js─┬─ticket_bg.min.js     # as bg script
-	     │    ├─ticket_conent_cross.min.js  # as content_scripts
-	     │    ├─ticket_conent_helper.min.js
-	     │    ├─ticket_conent_inject.js
-	     │    ├─ticket_conent_otn.min.js
-	     │    ├─ticket_conent.min.js
-	     │    └─ticket_pop.min.js   # as pop script
-	     ├lib─┬─base64.min.js
-	     │    └─...
-	     ├─plugin───helper.dull
-	     └─manifest.json
+piao ┬───css───...
+     ├─images──...
+     ├─js─┬─ticket_bg.min.js     # as bg script
+     │    ├─ticket_conent_cross.min.js  # as content_scripts
+     │    ├─ticket_conent_helper.min.js
+     │    ├─ticket_conent_inject.js
+     │    ├─ticket_conent_otn.min.js
+     │    ├─ticket_conent.min.js
+     │    └─ticket_pop.min.js   # as pop script
+     ├lib─┬─base64.min.js
+     │    └─...
+     ├─plugin───helper.dull
+     └─manifest.json
 
 ```
 
@@ -136,8 +136,7 @@ content-script环境：
 - 对于http://12306.360.cn/
   - ticket_content_helper.js
   -
-
-- 对于*://*.12306.cn/otn/
+- 对于https://kyfw.12306.cn/otn
   -
 
 
