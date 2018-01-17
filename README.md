@@ -1,6 +1,6 @@
 ## Introduction
 
-* my app  [PrettyPrint](my-app/PrettyPrint)
+* my app  [PrettyPrint](my-extension/PrettyPrint)
 * [chrome-extension-samples](chrome-extension-samples): fork from https://developer.chrome.com/extensions/samples
 * [chrome-app-samples](chrome-app-samples): fork from fork from https://github.com/GoogleChrome/chrome-app-samples
 
