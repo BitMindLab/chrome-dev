@@ -1,4 +1,4 @@
-  
+
 // will be injected to current chrome.tab from extApp
 // the break point in this file will not work, as it not run in extApp
 
@@ -8,13 +8,12 @@ Title = {
 	"gslab.qq.com":"$(\".article_tit\")[0].innerHTML"
 }
 
-// remove ads, 
+// remove ads,
 Remover = {
 	// sup-post-2 display: inline-block ! important
-	// #gd1  display: block !important; 
+	// #gd1  display: block !important;
 	// I cannot hide these elements
-	"www.ruanyifeng.com":["#sup-post-2","#gd1","#comments-open"] 
-
+	"www.ruanyifeng.com":["#sup-post-2","#gd1","#comments-open"]
 }
 
 Hider = {
@@ -47,7 +46,7 @@ Hider = {
 
 // width:100%
 Modifier = {
-	"jekyllcn.com":[".unit.four-fifths"], 
+	"jekyllcn.com":[".unit.four-fifths"],
 	"stackoverflow.com":["#mainbar", "#answers", "#answers-header", ".answer", ".comments ", ".post-text", ".answer.accepted-answer"],
 	"www.zhihu.com":[".Question-mainColumn"],
 	"tensorflow.com":[],
@@ -75,7 +74,7 @@ Displayer = {
 // rename class, or remove class (not remove elements)
 Renamer = {
 	"zh.wikipedia.org":["navbox","vertical-navbox"],
-	"en.wikipedia.org":["navbox","vertical-navbox"] 
+	"en.wikipedia.org":["navbox","vertical-navbox"]
 }
 
 // show
@@ -113,7 +112,7 @@ function prettyPages() {
 			var dd = $("."+selector)
 			for(var i=0; i<dd.length; i++) {
 				dd[i].classList.add("new"+selector);
-				dd[i].classList.remove(selector);	
+				dd[i].classList.remove(selector);
 			}
 		})
 	}
@@ -168,4 +167,3 @@ function matchRule(str, wildcardString) {
 	//Returns true if it finds a match, otherwise it returns false
 	return regex.test(str);
 }
-

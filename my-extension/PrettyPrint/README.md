@@ -3,15 +3,21 @@
 ## Introduction
 
 
-- PrettyPrint is pretty version of [print](../../Chrome%20Dev%20Sample/print). 
+- PrettyPrint is pretty version of [print](../../Chrome%20Dev%20Sample/print).
 
 - Saving as PDF for offline viewing (need a virtual printers)
-- 
+-
 
 keyword: background script, programmatic injection, silent print
 
-permission was used in 
+permission was used in
 
+
+## 用法
+
+
+- 一键保存 tensorflow PDF
+- 
 
 ## TODO
 
@@ -19,7 +25,7 @@ permission was used in
 - pretty more host
 - recover page after print? no need, stay on the simplified page may be more helpful.
 - print multi page at one click? how to save by default? go to next page? a button for multipage or not.
-- jspdf lib? 
+- jspdf lib?
 - add a pop-up page, with download-all button.
 - add to blog & disqus
 - add about & feedback link
