@@ -91,7 +91,6 @@ function absolute(base, relative) {
 }
 
 function relativeToAbsolute(host, element){
-	debugger;
         $('a',element).not('[href^="http"],[href^="https"],[href^="mailto:"],[href^="#"]').each(function() {
             $(this).attr('href', function(index, value) {
                 if (value.substr(0,1) !== "/") {
