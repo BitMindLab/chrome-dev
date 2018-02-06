@@ -7,6 +7,10 @@
 * Chrome Webstore: popular apps in webstore
 
 
+## Chrome DevTools Tips and Tricks
+
+- https://tutorialzine.com/2015/03/15-must-know-chrome-devtools-tips-tricks
+
 
 
 ## TODO
