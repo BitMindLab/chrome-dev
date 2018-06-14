@@ -1,9 +1,10 @@
 
 
-
+// 获取URL列表
 UrlSelector = {
 	"help.github.com":".km-article-link", // $(".km-article-link")[0].href
-	"pytorch.org":[".wy-menu a.reference"]
+	"pytorch.org":[".wy-menu a.reference"],
+	"www.tensorflow.org":".devsite-section-nav .devsite-nav-list .devsite-nav-item .devsite-nav-title:not(.devsite-nav-title-no-path)"
 }
 
 // 需要合并的header元素，比如css js
@@ -14,13 +15,15 @@ MergeHeader = {
 // 需要合并的内容元素
 MergeElement = {
 	"help.github.com":[".breadcrumbs",".article"],
-	"pytorch.org":[".rst-content"]
+	"pytorch.org":[".rst-content"],
+	"www.tensorflow.org":[".devsite-article-inner"]
 }
 
 // add the MergeElement to ToElement
 ToElement = {
 	"help.github.com":[".chevron"],
-	"pytorch.org":[".wy-nav-content"]
+	"pytorch.org":[".wy-nav-content"],
+	"www.tensorflow.org":[".devsite-article"]
 }
 
 
@@ -73,7 +76,8 @@ function XHRRequest() {
 
 // 同步调用，jquery
 
-
+// 页面中可能会存在image、js、css的相对路径，可能出现merge后路径找不到的问题。
+// 因此需要把相对路径转化为绝对路径。
 function absolute(base, relative) {
     var stack = base.split("/"),
         parts = relative.split("/");
@@ -90,10 +94,11 @@ function absolute(base, relative) {
     return stack.join("/");
 }
 
+// 草，这个函数是干嘛的来着
 function relativeToAbsolute(host, element){
         $('a',element).not('[href^="http"],[href^="https"],[href^="mailto:"],[href^="#"]').each(function() {
             $(this).attr('href', function(index, value) {
-                if (value.substr(0,1) !== "/") {
+                if (value!=undefined && value.substr(0,1) !== "/") {
                     value = absolute(host,value);
                 }
                 return value;
@@ -137,7 +142,7 @@ function relativeToAbsolute(host, element){
 
 //
 function merge() {
-
+	debugger;
 	// 1. get url list
 	var urlList = getUrlList();
 

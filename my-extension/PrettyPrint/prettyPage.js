@@ -91,6 +91,7 @@ Clicker = {
 
 // jquery is more easy to get element than document.getElementById and document.getElementByClassName
 function prettyPages() {
+
 	// 1. set title
 	var title = Title[window.location.host];
 	if(title!=undefined) {
